@@ -21,7 +21,8 @@
 		"vscode": {
 			"extensions": [
 				"ms-vscode.makefile-tools",
-				"ms-python.python"
+				"ms-python.python",
+				"GitHub.copilot"
 			]
 		}
 	}
