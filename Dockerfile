@@ -9,13 +9,13 @@ RUN apt-get update \
     && apt-get install -y default-mysql-client
 
 # install black
-RUN pip install black
+# RUN pip install black
 
 # Copy the requirements file to the container
-# COPY requirements.txt .
+COPY requirements.txt .
 
 # Install the Python dependencies
-# RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy the application code to the container
 COPY . .
