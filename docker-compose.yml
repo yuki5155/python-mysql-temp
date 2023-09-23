@@ -13,6 +13,8 @@ services:
       DB_NAME: testdb
       DB_USER: user
       DB_PASSWORD: password
+    depends_on:
+      - localstack  # appがlocalstackに依存
 
   db:
     image: mysql:8.0
@@ -26,6 +28,16 @@ services:
     command: --default-authentication-plugin=mysql_native_password
     ports:
       - "3306:3306"
+
+  localstack:
+    image: localstack/localstack
+    environment:
+      - SERVICES=s3,dynamodb
+      - DEFAULT_REGION=us-east-1
+      - AWS_ACCESS_KEY_ID=test
+      - AWS_SECRET_ACCESS_KEY=test
+    ports:
+      - "4566:4566"
 
 volumes:
   db_data:
